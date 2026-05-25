@@ -85,6 +85,7 @@ const ELEVATION_SMOOTHING_RADIUS = 2;
 const MAX_ROAD_GRADE = 0.12;
 const MIN_TERRAIN_FACTOR = 0.94;
 const MAX_TERRAIN_FACTOR = 1.14;
+const MAX_FLAT_EQUIVALENT_ADJUSTMENT_SECONDS = 20;
 
 // Helper to convert HH:MM:SS or MM:SS to seconds
 function timeToSeconds(timeStr) {
@@ -275,7 +276,10 @@ function getFlatEquivalentPace(gunTime, legIndex) {
     if (distanceKm <= 0 || terrainFactor <= 0) return null;
 
     const actualSecondsPerKm = timeToSeconds(gunTime) / distanceKm;
-    return actualSecondsPerKm / terrainFactor;
+    const flatEquivalentSecondsPerKm = actualSecondsPerKm / terrainFactor;
+    const minPace = actualSecondsPerKm - MAX_FLAT_EQUIVALENT_ADJUSTMENT_SECONDS;
+    const maxPace = actualSecondsPerKm + MAX_FLAT_EQUIVALENT_ADJUSTMENT_SECONDS;
+    return Math.max(minPace, Math.min(maxPace, flatEquivalentSecondsPerKm));
 }
 
 let map;
