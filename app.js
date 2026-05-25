@@ -81,11 +81,8 @@ const ELEVATIONS_DATA = [
 
 const ELEVATION_SAMPLE_INTERVAL_M = 100;
 const ELEVATION_BATCH_SIZE = 100;
-const ELEVATION_SMOOTHING_RADIUS = 2;
-const MAX_ROAD_GRADE = 0.12;
-const MIN_TERRAIN_FACTOR = 0.94;
-const MAX_TERRAIN_FACTOR = 1.14;
-const MAX_FLAT_EQUIVALENT_ADJUSTMENT_SECONDS = 20;
+const ELEVATION_SMOOTHING_RADIUS = 5;
+const MAX_ROAD_GRADE = 0.08;
 
 // Helper to convert HH:MM:SS or MM:SS to seconds
 function timeToSeconds(timeStr) {
@@ -162,8 +159,7 @@ function getLegTerrainFactor(index) {
     }
 
     const averageCost = costs.reduce((sum, cost) => sum + cost, 0) / costs.length;
-    const terrainFactor = averageCost / minettiRunningCost(0);
-    return Math.max(MIN_TERRAIN_FACTOR, Math.min(MAX_TERRAIN_FACTOR, terrainFactor));
+    return averageCost / minettiRunningCost(0);
 }
 
 function toRadians(degrees) {
@@ -276,10 +272,7 @@ function getFlatEquivalentPace(gunTime, legIndex) {
     if (distanceKm <= 0 || terrainFactor <= 0) return null;
 
     const actualSecondsPerKm = timeToSeconds(gunTime) / distanceKm;
-    const flatEquivalentSecondsPerKm = actualSecondsPerKm / terrainFactor;
-    const minPace = actualSecondsPerKm - MAX_FLAT_EQUIVALENT_ADJUSTMENT_SECONDS;
-    const maxPace = actualSecondsPerKm + MAX_FLAT_EQUIVALENT_ADJUSTMENT_SECONDS;
-    return Math.max(minPace, Math.min(maxPace, flatEquivalentSecondsPerKm));
+    return actualSecondsPerKm / terrainFactor;
 }
 
 let map;
