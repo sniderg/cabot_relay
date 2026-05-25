@@ -104,6 +104,52 @@ function secondsToTime(secs) {
     return `${m}:${sStr}`;
 }
 
+function formatPace(secondsPerKm) {
+    if (!Number.isFinite(secondsPerKm) || secondsPerKm <= 0) return '--:--';
+    return secondsToTime(Math.round(secondsPerKm));
+}
+
+function getLegDistanceKm(index) {
+    const distText = LEGS_METADATA[index]?.dist || '';
+    const distanceKm = parseFloat(distText);
+    return Number.isFinite(distanceKm) ? distanceKm : 0;
+}
+
+function minettiRunningCost(grade) {
+    return (155.4 * grade ** 5)
+        - (30.4 * grade ** 4)
+        - (43.3 * grade ** 3)
+        + (46.3 * grade ** 2)
+        + (19.5 * grade)
+        + 3.6;
+}
+
+function getLegTerrainFactor(index) {
+    const elevations = ELEVATIONS_DATA[index];
+    const distanceKm = getLegDistanceKm(index);
+    if (!elevations || elevations.length < 2 || distanceKm <= 0) return 1;
+
+    const segmentDistanceM = (distanceKm * 1000) / (elevations.length - 1);
+    const costs = [];
+
+    for (let i = 1; i < elevations.length; i++) {
+        const grade = (elevations[i] - elevations[i - 1]) / segmentDistanceM;
+        costs.push(minettiRunningCost(grade));
+    }
+
+    const averageCost = costs.reduce((sum, cost) => sum + cost, 0) / costs.length;
+    return averageCost / minettiRunningCost(0);
+}
+
+function getFlatEquivalentPace(gunTime, legIndex) {
+    const distanceKm = getLegDistanceKm(legIndex);
+    const terrainFactor = getLegTerrainFactor(legIndex);
+    if (distanceKm <= 0 || terrainFactor <= 0) return null;
+
+    const actualSecondsPerKm = timeToSeconds(gunTime) / distanceKm;
+    return actualSecondsPerKm / terrainFactor;
+}
+
 let map;
 let resultsData = [];
 let selectedLegIndex = 0; // 0 = Leg 1, 16 = Leg 17
@@ -464,10 +510,16 @@ function getLoopCardHtml(isNight, elevations = null) {
     if (!legData || !legData.results) return '';
     
     const sorted = [...legData.results].sort((a, b) => timeToSeconds(a.gunTime) - timeToSeconds(b.gunTime));
+    const terrainFactor = getLegTerrainFactor(selectedLegIndex);
+    const terrainPercent = Math.round((terrainFactor - 1) * 100);
+    const terrainLabel = terrainPercent === 0
+        ? 'Flat cost'
+        : `${terrainPercent > 0 ? '+' : ''}${terrainPercent}% terrain cost`;
     
     let rowsHtml = '';
     sorted.forEach(row => {
         const isUser = row.runnerName.includes("Graydon Snider");
+        const flatEquivalentPace = getFlatEquivalentPace(row.gunTime, selectedLegIndex);
         let teamIndicatorClass = 'hammers';
         if (row.teamKey === 'TORONTO HARRIERS MASTERS TEAM') teamIndicatorClass = 'harriers';
         if (row.teamKey === 'CB ROAD RUNNERS MASTERS') teamIndicatorClass = 'roadrunners';
@@ -485,6 +537,7 @@ function getLoopCardHtml(isNight, elevations = null) {
                 <div class="matchup-stats" style="text-align: right; font-family: var(--font-mono);">
                     <div class="matchup-time" style="font-size: 0.75rem; font-weight: 700;">${row.gunTime}</div>
                     <div class="matchup-pace" style="font-size: 0.6rem; color: var(--overlay-text-secondary);">${row.pace.trim()} min/km</div>
+                    <div class="matchup-flat-pace" style="font-size: 0.55rem; color: var(--overlay-primary);">Flat eq ${formatPace(flatEquivalentPace)} /km</div>
                 </div>
             </div>
         `;
@@ -506,6 +559,9 @@ function getLoopCardHtml(isNight, elevations = null) {
             <div class="overlay-title" style="font-size: 0.85rem; font-weight: 700; color: var(--overlay-primary); margin-bottom: 0.1rem;">${meta.name} Matchups</div>
             <div style="font-size: 0.7rem; font-weight: 600; color: var(--overlay-text-secondary);">
                 ${meta.dist} • Difficulty: ${meta.rating}/5
+            </div>
+            <div style="font-size: 0.62rem; font-weight: 700; color: var(--overlay-primary); text-transform: uppercase; letter-spacing: 0.03em;">
+                Minetti ${terrainLabel}
             </div>
             <div style="font-size: 0.65rem; font-weight: 400; color: var(--overlay-text-muted); line-height: 1.3; margin-top: 0.2rem;">
                 ${meta.desc}

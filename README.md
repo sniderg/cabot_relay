@@ -12,6 +12,8 @@ Static Leaflet app for visualizing the 2026 Cabot Trail Relay masters-category b
 - `Cabot Trail Relay legs.kml` - official transition-point KML source.
 - `logo.png` - app logo.
 
+The leg matchup card includes a flat-equivalent pace estimate using the Minetti running cost polynomial over each leg's sampled elevation profile.
+
 ## Run Locally
 
 Serve the directory with any static web server so browser `fetch()` calls can load the local JSON and KML files:
@@ -23,4 +25,3 @@ python3 -m http.server 8000
 Then open `http://localhost:8000`.
 
 The app uses Leaflet, Carto map tiles, Google Fonts, and OSRM routing from public CDNs/APIs.
-
