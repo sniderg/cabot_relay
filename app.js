@@ -81,6 +81,10 @@ const ELEVATIONS_DATA = [
 
 const ELEVATION_SAMPLE_INTERVAL_M = 100;
 const ELEVATION_BATCH_SIZE = 100;
+const ELEVATION_SMOOTHING_RADIUS = 2;
+const MAX_ROAD_GRADE = 0.12;
+const MIN_TERRAIN_FACTOR = 0.94;
+const MAX_TERRAIN_FACTOR = 1.14;
 
 // Helper to convert HH:MM:SS or MM:SS to seconds
 function timeToSeconds(timeStr) {
@@ -131,8 +135,19 @@ function getLegElevationProfile(index) {
     return highResElevationProfiles[index]?.elevations || ELEVATIONS_DATA[index];
 }
 
+function smoothElevations(elevations, radius = ELEVATION_SMOOTHING_RADIUS) {
+    if (!elevations || elevations.length === 0) return [];
+
+    return elevations.map((_, index) => {
+        const start = Math.max(0, index - radius);
+        const end = Math.min(elevations.length, index + radius + 1);
+        const window = elevations.slice(start, end);
+        return window.reduce((sum, elevation) => sum + elevation, 0) / window.length;
+    });
+}
+
 function getLegTerrainFactor(index) {
-    const elevations = getLegElevationProfile(index);
+    const elevations = smoothElevations(getLegElevationProfile(index));
     const distanceKm = getLegDistanceKm(index);
     if (!elevations || elevations.length < 2 || distanceKm <= 0) return 1;
 
@@ -140,12 +155,14 @@ function getLegTerrainFactor(index) {
     const costs = [];
 
     for (let i = 1; i < elevations.length; i++) {
-        const grade = (elevations[i] - elevations[i - 1]) / segmentDistanceM;
+        const rawGrade = (elevations[i] - elevations[i - 1]) / segmentDistanceM;
+        const grade = Math.max(-MAX_ROAD_GRADE, Math.min(MAX_ROAD_GRADE, rawGrade));
         costs.push(minettiRunningCost(grade));
     }
 
     const averageCost = costs.reduce((sum, cost) => sum + cost, 0) / costs.length;
-    return averageCost / minettiRunningCost(0);
+    const terrainFactor = averageCost / minettiRunningCost(0);
+    return Math.max(MIN_TERRAIN_FACTOR, Math.min(MAX_TERRAIN_FACTOR, terrainFactor));
 }
 
 function toRadians(degrees) {

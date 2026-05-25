@@ -12,7 +12,7 @@ Static Leaflet app for visualizing the 2026 Cabot Trail Relay masters-category b
 - `Cabot Trail Relay legs.kml` - official transition-point KML source.
 - `logo.png` - app logo.
 
-The leg matchup card includes a flat-equivalent pace estimate using the Minetti running cost polynomial. The app resamples each OSRM route polyline at about 100m intervals, looks up elevations with Open-Meteo's Copernicus GLO-90 based elevation API, and falls back to the bundled coarse profiles if live elevation lookup fails.
+The leg matchup card includes a flat-equivalent pace estimate using the Minetti running cost polynomial. The app resamples each OSRM route polyline at about 100m intervals, looks up elevations with Open-Meteo's Copernicus GLO-90 based elevation API, smooths/clips the resulting grades to control DEM noise, and falls back to the bundled coarse profiles if live elevation lookup fails.
 
 ## Run Locally
 
