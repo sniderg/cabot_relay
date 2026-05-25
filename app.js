@@ -79,6 +79,9 @@ const ELEVATIONS_DATA = [
     [15, 22, 38, 55, 68, 80, 75, 60, 45, 52, 60, 45, 30, 20, 12]
 ];
 
+const ELEVATION_SAMPLE_INTERVAL_M = 100;
+const ELEVATION_BATCH_SIZE = 100;
+
 // Helper to convert HH:MM:SS or MM:SS to seconds
 function timeToSeconds(timeStr) {
     if (!timeStr) return 0;
@@ -124,8 +127,12 @@ function minettiRunningCost(grade) {
         + 3.6;
 }
 
+function getLegElevationProfile(index) {
+    return highResElevationProfiles[index]?.elevations || ELEVATIONS_DATA[index];
+}
+
 function getLegTerrainFactor(index) {
-    const elevations = ELEVATIONS_DATA[index];
+    const elevations = getLegElevationProfile(index);
     const distanceKm = getLegDistanceKm(index);
     if (!elevations || elevations.length < 2 || distanceKm <= 0) return 1;
 
@@ -139,6 +146,110 @@ function getLegTerrainFactor(index) {
 
     const averageCost = costs.reduce((sum, cost) => sum + cost, 0) / costs.length;
     return averageCost / minettiRunningCost(0);
+}
+
+function toRadians(degrees) {
+    return degrees * Math.PI / 180;
+}
+
+function haversineDistanceMeters(a, b) {
+    const earthRadiusM = 6371000;
+    const dLat = toRadians(b[0] - a[0]);
+    const dLon = toRadians(b[1] - a[1]);
+    const lat1 = toRadians(a[0]);
+    const lat2 = toRadians(b[0]);
+    const sinLat = Math.sin(dLat / 2);
+    const sinLon = Math.sin(dLon / 2);
+    const h = sinLat * sinLat + Math.cos(lat1) * Math.cos(lat2) * sinLon * sinLon;
+    return 2 * earthRadiusM * Math.asin(Math.sqrt(h));
+}
+
+function interpolateLatLng(a, b, fraction) {
+    return [
+        a[0] + (b[0] - a[0]) * fraction,
+        a[1] + (b[1] - a[1]) * fraction
+    ];
+}
+
+function resampleRouteCoordinates(coordinates, intervalM = ELEVATION_SAMPLE_INTERVAL_M) {
+    if (!coordinates || coordinates.length < 2) return coordinates || [];
+
+    const samples = [coordinates[0]];
+    let distanceSinceLastSample = 0;
+
+    for (let i = 1; i < coordinates.length; i++) {
+        let segmentStart = coordinates[i - 1];
+        const segmentEnd = coordinates[i];
+        let segmentLength = haversineDistanceMeters(segmentStart, segmentEnd);
+
+        while (distanceSinceLastSample + segmentLength >= intervalM && segmentLength > 0) {
+            const distanceToSample = intervalM - distanceSinceLastSample;
+            const fraction = distanceToSample / segmentLength;
+            const sample = interpolateLatLng(segmentStart, segmentEnd, fraction);
+            samples.push(sample);
+            segmentStart = sample;
+            segmentLength = haversineDistanceMeters(segmentStart, segmentEnd);
+            distanceSinceLastSample = 0;
+        }
+
+        distanceSinceLastSample += segmentLength;
+    }
+
+    const finalPoint = coordinates[coordinates.length - 1];
+    const lastSample = samples[samples.length - 1];
+    if (haversineDistanceMeters(lastSample, finalPoint) > 1) {
+        samples.push(finalPoint);
+    }
+
+    return samples;
+}
+
+async function fetchElevationsForPoints(points) {
+    const elevations = [];
+
+    for (let i = 0; i < points.length; i += ELEVATION_BATCH_SIZE) {
+        const batch = points.slice(i, i + ELEVATION_BATCH_SIZE);
+        const latitudes = batch.map(pt => pt[0].toFixed(5)).join(',');
+        const longitudes = batch.map(pt => pt[1].toFixed(5)).join(',');
+        const url = `https://api.open-meteo.com/v1/elevation?latitude=${latitudes}&longitude=${longitudes}`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Elevation lookup failed: ${response.statusText}`);
+        }
+        const data = await response.json();
+        if (!Array.isArray(data.elevation) || data.elevation.length !== batch.length) {
+            throw new Error('Elevation lookup returned an unexpected shape.');
+        }
+        elevations.push(...data.elevation);
+    }
+
+    return elevations;
+}
+
+async function loadHighResElevationProfile(index) {
+    if (highResElevationProfiles[index] || elevationProfileRequests[index]) return;
+
+    const route = routeLines.find(rl => rl.index === index);
+    if (!route?.coordinates || route.coordinates.length < 2) return;
+
+    elevationProfileRequests[index] = (async () => {
+        try {
+            const samplePoints = resampleRouteCoordinates(route.coordinates);
+            const elevations = await fetchElevationsForPoints(samplePoints);
+            highResElevationProfiles[index] = {
+                elevations,
+                sampleCount: elevations.length,
+                sampleIntervalM: ELEVATION_SAMPLE_INTERVAL_M
+            };
+            if (index === selectedLegIndex) {
+                updateUIForSelectedLeg();
+            }
+        } catch (e) {
+            console.error(`Failed to load high-resolution elevation profile for leg ${index + 1}:`, e);
+        } finally {
+            delete elevationProfileRequests[index];
+        }
+    })();
 }
 
 function getFlatEquivalentPace(gunTime, legIndex) {
@@ -155,6 +266,8 @@ let resultsData = [];
 let selectedLegIndex = 0; // 0 = Leg 1, 16 = Leg 17
 let routeLines = []; // Store Leaflet polyline paths for each leg
 let markers = []; // Store transition point markers
+let highResElevationProfiles = {};
+let elevationProfileRequests = {};
 let playbackInterval = null;
 let isPlaying = false;
 let hasStartedFocusing = false;
@@ -269,7 +382,7 @@ async function drawCabotTrailLoop() {
                     lineJoin: 'round'
                 }).addTo(map);
                 
-                routeLines.push({ index: i, line: line });
+                routeLines.push({ index: i, line: line, coordinates });
             } else {
                 throw new Error("No route found");
             }
@@ -280,7 +393,11 @@ async function drawCabotTrailLoop() {
                 weight: i === selectedLegIndex ? 5 : 3,
                 opacity: i === selectedLegIndex ? 1.0 : 0.6
             }).addTo(map);
-            routeLines.push({ index: i, line: line });
+            routeLines.push({
+                index: i,
+                line: line,
+                coordinates: [[startPt.lat, startPt.lon], [endPt.lat, endPt.lon]]
+            });
         }
     }
     
@@ -442,6 +559,8 @@ function selectLeg(index, userTriggered = false) {
             });
         }
     }
+
+    loadHighResElevationProfile(index);
 }
 
 // Refresh stats, comparisons, margins, and match-ups
@@ -456,7 +575,7 @@ function updateUIForSelectedLeg() {
     const isNight = selectedLegIndex >= 9 && selectedLegIndex <= 13;
     const container = document.getElementById('matchup-overlay-container');
     if (container) {
-        const elevations = ELEVATIONS_DATA[selectedLegIndex];
+        const elevations = getLegElevationProfile(selectedLegIndex);
         container.innerHTML = getLoopCardHtml(isNight, elevations);
     }
     
