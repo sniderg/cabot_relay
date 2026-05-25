@@ -1,0 +1,128 @@
+[
+  {
+    "leg": 0,
+    "name": "Leg 1 Start 7am",
+    "query": "Gaelic College, Saint Anns, NS, Canada",
+    "lat": 46.2123136,
+    "lon": -60.6050169
+  },
+  {
+    "leg": 1,
+    "name": "Leg 2 Start 8:40am",
+    "query": "North River Bridge, NS, Canada",
+    "lat": 46.3079692,
+    "lon": -60.6181544
+  },
+  {
+    "leg": 2,
+    "name": "Leg 3 Start 10:25am",
+    "query": "Clucking Hen Cafe, Cabot Trail, NS, Canada",
+    "lat": 46.4074937,
+    "lon": -60.4822147
+  },
+  {
+    "leg": 3,
+    "name": "Leg 4 Start 11:45am",
+    "query": "Wreck Cove General Store, Cabot Trail, NS, Canada",
+    "lat": 46.5159078,
+    "lon": -60.427047
+  },
+  {
+    "leg": 4,
+    "name": "Leg 5 Start 1:45pm",
+    "query": "Cape Smokey Ski Lodge, Ingonish, NS, Canada",
+    "lat": 46.6282579,
+    "lon": -60.4210067
+  },
+  {
+    "leg": 5,
+    "name": "Leg 6 Start 3:30pm",
+    "query": "Warren Lake, Ingonish, NS, Canada",
+    "lat": 46.7125314,
+    "lon": -60.3649378
+  },
+  {
+    "leg": 6,
+    "name": "Leg 7 Start 5:20pm",
+    "query": "Cabot High School, Neils Harbour, NS, Canada",
+    "lat": 46.8245034,
+    "lon": -60.360775
+  },
+  {
+    "leg": 7,
+    "name": "Leg 8 Start 6:40pm",
+    "query": "Dingwall, NS, Canada",
+    "lat": 46.8840503,
+    "lon": -60.4993916
+  },
+  {
+    "leg": 8,
+    "name": "Leg 9 Start 7:55pm",
+    "query": "Big Interval, Cape North, NS, Canada",
+    "lat": 46.8301813,
+    "lon": -60.6151343
+  },
+  {
+    "leg": 9,
+    "name": "Leg 10 Start 9:40pm",
+    "query": "Pleasant Bay, NS, Canada",
+    "lat": 46.8199958,
+    "lon": -60.7960975
+  },
+  {
+    "leg": 10,
+    "name": "Leg 11 Start 11:10pm",
+    "query": "Benjie's Lake, Cabot Trail, NS, Canada",
+    "lat": 46.7470363,
+    "lon": -60.8216643
+  },
+  {
+    "leg": 11,
+    "name": "Leg 12 Start 12:35am",
+    "query": "Trout Brook, Cabot Trail, NS, Canada",
+    "lat": 46.7060354,
+    "lon": -60.9404325
+  },
+  {
+    "leg": 12,
+    "name": "Let 13 Start 2:10am",
+    "query": "Coady Tompkins Library, Margaree, NS, Canada",
+    "lat": 46.6232881,
+    "lon": -61.0181952
+  },
+  {
+    "leg": 13,
+    "name": "Leg 14 Start 3:45am",
+    "query": "Lakes Cafe, Margaree Valley, NS, Canada",
+    "lat": 46.495907,
+    "lon": -61.0742909
+  },
+  {
+    "leg": 14,
+    "name": "Leg 15 Start 5:40am",
+    "query": "Middle River, NS, Canada",
+    "lat": 46.3343211,
+    "lon": -61.0977602
+  },
+  {
+    "leg": 15,
+    "name": "Leg 16 Start 7:10am",
+    "query": "Hunters Mountain, NS, Canada",
+    "lat": 46.2812376,
+    "lon": -60.9647387
+  },
+  {
+    "leg": 16,
+    "name": "Leg 17 start 8:40am",
+    "query": "Nyanza, NS, Canada",
+    "lat": 46.1564234,
+    "lon": -60.9232476
+  },
+  {
+    "leg": 17,
+    "name": "Finish Line",
+    "query": "Baddeck Court House, Baddeck, NS, Canada",
+    "lat": 46.0998888,
+    "lon": -60.7526618
+  }
+]

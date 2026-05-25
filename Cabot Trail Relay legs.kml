@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Cabot Trail Relay legs</name>
+    <description>These are the start and end locations for the Cabot Trail Relay</description>
+    <Style id="icon-seq2-0-0-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-1.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-1-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-2.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-10-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-11.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-11-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-12.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-12-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-13.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-13-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-14.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-14-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-15.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-15-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-16.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-16-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-17.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-17-01579B-labelson-nodesc">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-18.png</href>
+        </Icon>
+      </IconStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-seq2-0-2-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-3-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-4.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-4-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-5.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-5-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-6.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-6-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-7.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-7-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-8.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-8-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-9.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-9-01579B-labelson">
+      <IconStyle>
+        <color>ff9b5701</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-10.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Cabot Trail Relay</name>
+      <Placemark>
+        <name>Leg 1 Start 7am</name>
+        <description><![CDATA[17.00 km Rating 3.5 (start time: 0700hrs) Start on the Cabot Trail, at the Gaelic<br>College monument, 1.1 km from Exit 11 off<br>#105 Highway,and finish after crossing the<br>North River Bridge, at the church on the left.<br>This is a gently rolling leg with on long,<br>moderate hill rising from 0 to 50m. Beautiful<br>scenery and a fabulous time of day. There will<br>be two portables at the Gaelic College]]></description>
+        <styleUrl>#icon-seq2-0-0-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.6050169,46.2123136,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 2 Start 8:40am</name>
+        <description><![CDATA[17.92 km Rating 3.5 (start time:0840hrs) This long easy rolling leg finishes at the<br>Clucking Hen Cafe along the North Shore and<br>passes through a quiet, remote river valley<br>with a maximum elevation of 60 m. Three<br>portables at the Church.]]></description>
+        <styleUrl>#icon-seq2-0-1-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.6181544,46.3079692,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 3 Start 10:25am</name>
+        <description><![CDATA[13.46 km Rating 2 (start time: 1025hrs) This leg finishes at Wreck Cove General<br>Store on the left. A rolling leg with a few short<br>hills. Two portables at the Clucking Hen and<br>three at the Wreck Cove General Store.]]></description>
+        <styleUrl>#icon-seq2-0-2-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.4822147,46.4074937,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 4 Start 11:45am</name>
+        <description><![CDATA[20.01 km Rating 5 (start time: 1145hrs) The first 9 km are continuous easy ups &<br>downs but the best is yet to come. You must<br>now complete a 2.1 km climb up Cape<br>Smokey. Relax for the steep downhill on the<br>way to the finish. A couple more hills will take<br>you to the finish at Cape Smokey Ski Lodge on<br>the left. Two portables will be at the finish of<br>this Leg.]]></description>
+        <styleUrl>#icon-seq2-0-3-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.427047,46.5159078,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 5 Start 1:45pm</name>
+        <description><![CDATA[17.5 km Rating 3.5 (start time: 1345hrs) A long moderate climb up to Ingonish<br>Beach and the entrance to the Cape Breton<br>Highlands National Park, then go gently rolling<br>downhill through the village of Ingonish. This<br>leg finishes at the Mary Ann Falls Warren<br>Lake entrance on the right just past the Broad<br>Cove campsite. Two portables will be available<br>at the finish of this Leg]]></description>
+        <styleUrl>#icon-seq2-0-4-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.4210067,46.6282579,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 6 Start 3:30pm</name>
+        <description><![CDATA[17.5 km Rating 4.5 (start time: 1530hrs) The scenery on this seacoast run will<br>captivate you despite a couple of long<br>challenging hills. This leg climbs to the finish<br>at Cabot High School on the right. Elevation<br>90m. Be prepared for strong coastal breezes.<br>There will be access to washrooms and<br>showers at Cabot High School.]]></description>
+        <styleUrl>#icon-seq2-0-5-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.3649378,46.7125314,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 7 Start 5:20pm</name>
+        <description><![CDATA[13.1 km Rating 3 (start time: 1720hrs) A rolling leg but the first 8 km climbs<br>steadily 90m and then falls quickly to finish<br>0.2 km past the Dingwall garage, where there<br>will be two portables for washroom breaks.]]></description>
+        <styleUrl>#icon-seq2-0-6-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.360775,46.8245034,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 8 Start 6:40pm</name>
+        <description><![CDATA[12.36 km Rating 2.5 (start time:1840hrs) An easier leg with a gorgeous view of the<br>Sunrise Valley on the right. There is a slow<br>steady 3 km climb in the beginning. After this<br>you are rewarded by a flat stretch and<br>afterwards finish just before the picnic park at<br>Big Interval. Go to the park for bathrooms<br>breaks at two portables.]]></description>
+        <styleUrl>#icon-seq2-0-7-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.4993916,46.8840503,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 9 Start 7:55pm</name>
+        <description><![CDATA[17.84 km Rating 5 (start time: 1955hrs) Time to put on the reflective vest! This<br>leg makes Smokey look like a piece of cake.<br>North Mountain in the Cape Breton Highlands<br>National Park climbs 385 m & reaches the<br>top at 6.2 km then falls back to sea level. The<br>route then levels off to finish at Mountain View<br>Motel & Restaurant on the right at Pleasant<br>Bay. Night will have fallen completely. The<br>restaurant will be open and there will be two<br>portables in the parking lot.]]></description>
+        <styleUrl>#icon-seq2-0-8-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.6151343,46.8301813,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 10 Start 9:40pm</name>
+        <description><![CDATA[14.7 km Rating 5 (start time:2140hrs) This leg is for people who like running<br>up hills. The first 3.1 km are just to warm up &<br>get you to the base of MacKenzie Mountain in<br>the Cape Breton Highlands National Park. The<br>route then climbs 385m snaking back & forth up<br>the side of the mountain for 6.2 km. It then<br>levels off for the rest of the leg & finishes at the<br>parking lot on the right at Benjie’s Lake. The<br>middle of nowhere, but two portables will be<br>available.]]></description>
+        <styleUrl>#icon-seq2-0-9-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.7960975,46.8199958,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 11 Start 11:10pm</name>
+        <description><![CDATA[14 km Rating 3.5 (start time: 2310hrs) This leg located fully within the Cape<br>Breton Highlands National Park is for the<br>runner who likes to run downhill. However, the<br>first 5.8 km climbs steadily to an elevation of<br>460m. Relax and coast down the next stretch to<br>sea level. Be prepared for two short, very<br>steep hills to the finish at a 60m elevation at the<br>look off past the Trout Brook Picnic Park. Two<br>portables will be provided in the picnic park.]]></description>
+        <styleUrl>#icon-seq2-0-10-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.8216643,46.7470363,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 12 Start 12:35am</name>
+        <description><![CDATA[15.78 km Rating 3 (start time:0035hrs) Easy rolling leg with a nice view of the<br>Gulf on the right (in the daylight!). Descends<br>from 60m at the look-off to sea level & will be<br>your second brush with civilization as you leave<br>the Cape Breton Highlands National Park and<br>enter the Village of Cheticamp. This leg ends<br>at the parking lot of the CO-OP Atlantic Grocery<br>Store. Two portables will be available at the<br>parking lot next to the CO-OP]]></description>
+        <styleUrl>#icon-seq2-0-11-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.9404325,46.7060354,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Let 13 Start 2:10am</name>
+        <description><![CDATA[15.88 km Rating 3 (start time:0210hrs) Easy rolling leg through Acadian farms<br>& seacoast to finish at Joe’s Scarecrow &<br>Diner. A quiet peaceful leg for the night owl on<br>your team; no street lights out here. Rises to a<br>maximum elevation of 30m. Two portables will<br>be available at Joe Scarecrows.]]></description>
+        <styleUrl>#icon-seq2-0-12-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -61.0181952,46.6232881,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 14 Start 3:45am</name>
+        <description><![CDATA[19.81 km Rating 4 (start time: 0345hrs) This long leg begins a 7.9 km level coastal run<br>to Margaree Harbour. Dawn will be breaking as you<br>turn left & follow the Cabot Trail. The leg heads inland<br>& starts to rise gradually to a maximum elevation of<br>10m to finish at the Tourist Bureau on the left across<br>from Margaree Lodge. There will be two portables at<br>the Tourist Bureau.]]></description>
+        <styleUrl>#icon-seq2-0-13-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -61.0742909,46.495907,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 15 Start 5:40am</name>
+        <description><![CDATA[15.42 km Rating 2 (start time: 0540hrs) Now that daylight has arrived enjoy the scenic<br>Margaree Valley as you roll along this fairly easy leg<br>which finishes at the Lakes Cafe on the left.<br>Maximum elevation on this leg is 30m. The Lakes will<br>be open and we’ll have two portables at the site.]]></description>
+        <styleUrl>#icon-seq2-0-14-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -61.0977602,46.3343211,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 16 Start 7:10am</name>
+        <description><![CDATA[15.35 km Rating 2 (start time: 0710hrs) This is the flattest leg in the race. It finishes at<br>the gravel pits, just beyond the churches in Middle<br>River on the left. It rises from approximately 30m to a<br>maximum elevation of 50m. At the Churches we’ll<br>have four portables.]]></description>
+        <styleUrl>#icon-seq2-0-15-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.9647387,46.2812376,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Leg 17 start 8:40am</name>
+        <description>This leg has a flat 2km start from the two churches in Middle River then rises 3.5 km up Hunter’s Mountain on a fairly steep grade to an elevation of 150m. It then falls quickly to turn sharp left along the Swamp Road. This is a 5 km stretch of high grade gravel road. Turn right over Baddeck Bridge and climb steadily to the overpass on the outskirts of Baddeck. It’s downhill all the way to the finish line in front of the Court House in the center of the village of Baddeck. Washrooms and Showers at Baddeck Academy will be available, and there will be two portables near the Welcome Centre in Baddeck.</description>
+        <styleUrl>#icon-seq2-0-16-01579B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -60.9232476,46.1564234,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Finish Line</name>
+        <styleUrl>#icon-seq2-0-17-01579B-labelson-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -60.7526618,46.0998888,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Untitled layer</name>
+    </Folder>
+  </Document>
+</kml>

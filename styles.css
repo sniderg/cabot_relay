@@ -1,0 +1,719 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg-base: #0a0b10;
+    --bg-surface: rgba(22, 24, 37, 0.7);
+    --bg-surface-opaque: #161825;
+    --bg-card: rgba(30, 33, 50, 0.4);
+    
+    --primary: #ffd700; /* Gold for Old Hammers */
+    --primary-glow: rgba(255, 215, 0, 0.15);
+    --accent-blue: #00e5ff; /* Blue for Toronto Harriers */
+    --accent-blue-glow: rgba(0, 229, 255, 0.15);
+    --accent-cyan: #39ff14; /* Neon green/cyan for CB Road Runners */
+    --accent-cyan-glow: rgba(57, 255, 20, 0.15);
+    
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.15);
+    
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --font-sans: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --gap-red: #ff3b30;
+    --gap-green: #34c759;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow: hidden; /* Prevent body scroll */
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+header {
+    background: rgba(10, 11, 16, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1.5rem;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    flex-shrink: 0;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+header.day {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+header.day .brand-title h1 {
+    background: linear-gradient(90deg, #111827, #4b5563);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header.day .brand-title p {
+    color: #4b5563;
+}
+
+header.day .btn {
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #111827;
+}
+
+header.day .btn.active {
+    border-color: #e65100;
+    box-shadow: 0 0 10px rgba(230, 81, 0, 0.2);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.brand-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.brand-title h1 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-title p {
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+}
+
+.nav-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-controls .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 6px;
+}
+
+.btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    border-color: var(--border-hover);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: #000;
+    border-color: var(--primary);
+    font-weight: 700;
+}
+
+.btn.primary:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+/* App Layout Flexbox */
+.app-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        height: auto;
+        overflow: auto;
+    }
+    .map-section {
+        height: 400px !important;
+    }
+}
+
+/* Team Standings / Leaderboard */
+.standings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.team-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.team-card.hammers {
+    border-left: 4px solid var(--primary);
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.03) 0%, var(--bg-card) 100%);
+}
+
+.team-card.harriers {
+    border-left: 4px solid var(--accent-blue);
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.03) 0%, var(--bg-card) 100%);
+}
+
+.team-card.roadrunners {
+    border-left: 4px solid var(--accent-cyan);
+    background: linear-gradient(90deg, rgba(57, 255, 20, 0.03) 0%, var(--bg-card) 100%);
+}
+
+.team-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-rank {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.team-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.team-time {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.team-gap {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    align-self: flex-end;
+}
+
+.team-gap.positive {
+    color: var(--gap-red);
+}
+
+.team-gap.negative {
+    color: var(--gap-green);
+}
+
+/* Leg Selector / Scroller */
+.leg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.leg-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.leg-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-hover);
+}
+
+.leg-item.active {
+    background: rgba(255, 215, 0, 0.08);
+    border-color: var(--primary);
+}
+
+.leg-num {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+.leg-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+    min-width: 0;
+    padding-right: 0.75rem;
+}
+
+.leg-name {
+    font-size: 0.82rem;
+    color: var(--text-primary);
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.35;
+}
+
+.leg-badge {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+/* Map Section */
+.map-section {
+    position: relative;
+    height: 100%;
+    z-index: 10;
+    flex: 1;
+    min-width: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.map-overlay-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(10, 11, 16, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.map-control-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+}
+
+.map-control-btn:hover {
+    color: var(--primary);
+}
+
+.playback-progress {
+    width: 150px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+}
+
+.playback-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 2px;
+    width: 0%;
+}
+
+/* Detail Card & Comparisons */
+.detail-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.detail-card-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.detail-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.detail-meta {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.runner-matchup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.matchup-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+}
+
+.matchup-row.highlighted {
+    border-color: var(--primary);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.matchup-team {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.team-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.team-indicator.hammers { background-color: var(--overlay-primary); }
+.team-indicator.harriers { background-color: var(--accent-blue); }
+.team-indicator.roadrunners { background-color: var(--accent-cyan); }
+
+.matchup-runner {
+    font-size: 0.9rem;
+}
+
+.matchup-stats {
+    text-align: right;
+    font-family: var(--font-mono);
+}
+
+.matchup-time {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.matchup-pace {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* User Badge Specific style */
+.user-badge {
+    background: var(--primary);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+.map-overlay-matchup,
+.map-overlay-leaderboard,
+.map-overlay-legs {
+    --overlay-bg: rgba(10, 11, 16, 0.85);
+    --overlay-border: rgba(255, 255, 255, 0.08);
+    --overlay-text-primary: #f3f4f6;
+    --overlay-text-secondary: #9ca3af;
+    --overlay-text-muted: #6b7280;
+    --overlay-row-bg: rgba(255, 255, 255, 0.02);
+    --overlay-row-border: rgba(255, 255, 255, 0.05);
+    --overlay-primary: var(--primary);
+    --gap-green: #34c759;
+    --gap-red: #ff3b30;
+}
+
+.map-overlay-matchup.day,
+.map-overlay-leaderboard.day,
+.map-overlay-legs.day {
+    --overlay-bg: rgba(255, 255, 255, 0.95);
+    --overlay-border: rgba(0, 0, 0, 0.15);
+    --overlay-text-primary: #111827;
+    --overlay-text-secondary: #2d3748;
+    --overlay-text-muted: #4a5568;
+    --overlay-row-bg: rgba(0, 0, 0, 0.03);
+    --overlay-row-border: rgba(0, 0, 0, 0.08);
+    --overlay-primary: #e65100;
+    --gap-green: #1b5e20;
+    --gap-red: #b71c1c;
+}
+
+.map-overlay-leaderboard {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    width: 250px;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--overlay-border);
+    color: var(--overlay-text-primary);
+    border-radius: 12px;
+    padding: 0.6rem 0.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.map-overlay-leaderboard .standings-list {
+    gap: 0.3rem;
+}
+
+.map-overlay-leaderboard .team-card {
+    background: transparent !important;
+    border: none !important;
+    border-left: 3px solid transparent !important;
+    border-radius: 0 !important;
+    padding: 0.2rem 0 0.2rem 0.5rem !important;
+    gap: 0.1rem;
+    box-shadow: none !important;
+}
+
+.map-overlay-leaderboard .team-card.hammers {
+    border-left-color: var(--overlay-primary) !important;
+}
+
+.map-overlay-leaderboard .team-card.harriers {
+    border-left-color: var(--accent-blue) !important;
+}
+
+.map-overlay-leaderboard .team-card.roadrunners {
+    border-left-color: var(--accent-cyan) !important;
+}
+
+.map-overlay-leaderboard .team-name {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.map-overlay-leaderboard .team-time {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: inherit;
+}
+
+.map-overlay-leaderboard .team-gap {
+    font-size: 0.65rem;
+}
+
+.map-overlay-leaderboard .team-rank {
+    font-size: 0.65rem;
+    padding: 0.05rem 0.25rem;
+    background: var(--overlay-row-border);
+}
+
+.map-overlay-matchup {
+    position: absolute;
+    top: 1rem;
+    left: 3.5rem;
+    z-index: 1000;
+    width: 250px;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--overlay-border);
+    color: var(--overlay-text-primary);
+    border-radius: 12px;
+    padding: 0.6rem 0.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.leaflet-div-icon {
+    background: none !important;
+    border: none !important;
+}
+
+.overlay-title {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--overlay-text-secondary);
+    letter-spacing: 0.05em;
+}
+
+/* Floating Legs Overlay */
+.map-overlay-legs {
+    position: absolute;
+    bottom: 5.5rem; /* slightly higher to clear map controls at bottom */
+    left: 1.2rem;
+    z-index: 1000;
+    width: 159px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.legs-overlay-content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3px;
+}
+
+.legs-overlay-content .leg-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.65rem;
+    font-family: var(--font-mono, monospace);
+    font-weight: 600;
+    transition: all 0.15s ease;
+    
+    /* Dark mode glassy default style */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.legs-overlay-content .leg-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.map-overlay-legs.day .legs-overlay-content .leg-item {
+    /* Day mode light glassy style */
+    background: rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.map-overlay-legs.day .legs-overlay-content .leg-item:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.legs-overlay-content .leg-item.active {
+    background: rgba(255, 215, 0, 0.35); /* vibrant gold active */
+    color: #ffd700;
+    border-color: #ffd700;
+    font-weight: 700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.map-overlay-legs.day .legs-overlay-content .leg-item.active {
+    background: rgba(230, 81, 0, 0.25); /* dark orange active */
+    color: #e65100;
+    border-color: #e65100;
+    box-shadow: 0 0 8px rgba(230, 81, 0, 0.3);
+}
+
+.legs-overlay-content .leg-item.label-grid-cell {
+    background: transparent !important;
+    border: none !important;
+    cursor: default;
+    pointer-events: none;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.52rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--overlay-text-secondary, #9ca3af);
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.map-overlay-legs.day .legs-overlay-content .leg-item.label-grid-cell {
+    color: var(--overlay-text-secondary, #2d3748);
+}

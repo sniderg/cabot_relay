@@ -1,0 +1,563 @@
+[
+  {
+    "legName": "Leg 1",
+    "subEventId": 283701,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Greg McNeil",
+        "gunTime": "1:01:18",
+        "pace": "3:37 ",
+        "overallPlace": 4,
+        "bib": "5"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "Timothy Fowler",
+        "gunTime": "1:02:47",
+        "pace": "3:42 ",
+        "overallPlace": 7,
+        "bib": "4"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Jarvis GooGoo",
+        "gunTime": "1:03:18",
+        "pace": "3:44 ",
+        "overallPlace": 8,
+        "bib": "6"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 2",
+    "subEventId": 283702,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Ian Doyle",
+        "gunTime": "1:03:12",
+        "pace": "3:32 ",
+        "overallPlace": 5,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Tony Zareski",
+        "gunTime": "1:11:25",
+        "pace": "4:00 ",
+        "overallPlace": 10,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Adrian Del Monte",
+        "gunTime": "1:11:34",
+        "pace": "4:00 ",
+        "overallPlace": 11,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 3",
+    "subEventId": 283703,
+    "results": [
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Kyle Smith",
+        "gunTime": "47:35",
+        "pace": "3:33 ",
+        "overallPlace": 3,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Chris van de Water",
+        "gunTime": "49:02",
+        "pace": "3:39 ",
+        "overallPlace": 5,
+        "bib": "4"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Ryan MacDonald",
+        "gunTime": "57:54",
+        "pace": "4:19 ",
+        "overallPlace": 10,
+        "bib": "5"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 4",
+    "subEventId": 283704,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "John Corbit",
+        "gunTime": "1:11:21",
+        "pace": "3:34 ",
+        "overallPlace": 4,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Graydon Snider",
+        "gunTime": "1:11:24",
+        "pace": "3:35 ",
+        "overallPlace": 5,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Alex Hutchinson",
+        "gunTime": "1:19:22",
+        "pace": "3:58 ",
+        "overallPlace": 11,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 5",
+    "subEventId": 283705,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Tyler Germani",
+        "gunTime": "1:07:05",
+        "pace": "3:50 ",
+        "overallPlace": 8,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Aaron MacInnis",
+        "gunTime": "1:07:53",
+        "pace": "3:53 ",
+        "overallPlace": 9,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Jordan Brensinger",
+        "gunTime": "1:07:56",
+        "pace": "3:53 ",
+        "overallPlace": 10,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 6",
+    "subEventId": 283706,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Justin Lalanne",
+        "gunTime": "1:06:05",
+        "pace": "3:47 ",
+        "overallPlace": 6,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Drew Moore",
+        "gunTime": "1:07:14",
+        "pace": "3:51 ",
+        "overallPlace": 8,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Christopher Bibby",
+        "gunTime": "1:08:40",
+        "pace": "3:56 ",
+        "overallPlace": 11,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 7",
+    "subEventId": 283707,
+    "results": [
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "Adam Yurkiw",
+        "gunTime": "57:12",
+        "pace": "4:22 ",
+        "overallPlace": 11,
+        "bib": "4"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Matt Malenfant",
+        "gunTime": "57:40",
+        "pace": "4:25 ",
+        "overallPlace": 13,
+        "bib": "6"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Jamie Fitzgerald",
+        "gunTime": "59:30",
+        "pace": "4:33 ",
+        "overallPlace": 20,
+        "bib": "5"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 8",
+    "subEventId": 283708,
+    "results": [
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "Peter Jaksa",
+        "gunTime": "47:47",
+        "pace": "3:52 ",
+        "overallPlace": 5,
+        "bib": "4"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Daniel McNeil",
+        "gunTime": "48:55",
+        "pace": "3:58 ",
+        "overallPlace": 7,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Erin Poirier",
+        "gunTime": "50:22",
+        "pace": "4:05 ",
+        "overallPlace": 8,
+        "bib": "6"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 9",
+    "subEventId": 283709,
+    "results": [
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Doug Hayami",
+        "gunTime": "1:10:02",
+        "pace": "3:56 ",
+        "overallPlace": 8,
+        "bib": "6"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Garett Landry",
+        "gunTime": "1:11:24",
+        "pace": "4:01 ",
+        "overallPlace": 12,
+        "bib": "5"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "Warren Ringler",
+        "gunTime": "1:12:23",
+        "pace": "4:04 ",
+        "overallPlace": 13,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 10",
+    "subEventId": 283710,
+    "results": [
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Ian Holdway",
+        "gunTime": "56:01",
+        "pace": "3:49 ",
+        "overallPlace": 4,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Adrian Lambert",
+        "gunTime": "1:00:25",
+        "pace": "4:07 ",
+        "overallPlace": 8,
+        "bib": "4"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Corey Deveaux",
+        "gunTime": "1:00:47",
+        "pace": "4:09 ",
+        "overallPlace": 9,
+        "bib": "5"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 11",
+    "subEventId": 283711,
+    "results": [
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Timothy Fowler",
+        "gunTime": "50:40",
+        "pace": "3:38 ",
+        "overallPlace": 5,
+        "bib": "4"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Phil Leblanc",
+        "gunTime": "54:39",
+        "pace": "3:55 ",
+        "overallPlace": 12,
+        "bib": "6"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Jeff MacLeod",
+        "gunTime": "55:56",
+        "pace": "4:00 ",
+        "overallPlace": 13,
+        "bib": "5"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 12",
+    "subEventId": 283712,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Greg Mcneil",
+        "gunTime": "56:10",
+        "pace": "3:34 ",
+        "overallPlace": 6,
+        "bib": "5"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "John Pereira",
+        "gunTime": "1:01:36",
+        "pace": "3:55 ",
+        "overallPlace": 9,
+        "bib": "4"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Chris Fourgnaud",
+        "gunTime": "1:03:59",
+        "pace": "4:04 ",
+        "overallPlace": 11,
+        "bib": "6"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 13",
+    "subEventId": 283713,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Justin Lalanne",
+        "gunTime": "1:01:38",
+        "pace": "3:53 ",
+        "overallPlace": 5,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Ryan Hearn",
+        "gunTime": "1:02:34",
+        "pace": "3:57 ",
+        "overallPlace": 6,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "Elliott Altilia",
+        "gunTime": "1:04:50",
+        "pace": "4:05 ",
+        "overallPlace": 8,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 14",
+    "subEventId": 283714,
+    "results": [
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "TORONTO HARRIERS MASTERS TEAM",
+        "runnerName": "Chris van de Water",
+        "gunTime": "1:14:18",
+        "pace": "3:45 ",
+        "overallPlace": 5,
+        "bib": "4"
+      },
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB ROAD RUNNERS MASTERS",
+        "runnerName": "Herbie Sakalauskas",
+        "gunTime": "1:19:58",
+        "pace": "4:03 ",
+        "overallPlace": 15,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "HALIFAX OLD HAMMERS",
+        "runnerName": "Jarvis Googoo",
+        "gunTime": "1:23:52",
+        "pace": "4:14 ",
+        "overallPlace": 20,
+        "bib": "6"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 15",
+    "subEventId": 283715,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "John Corbit",
+        "gunTime": "54:25",
+        "pace": "3:32 ",
+        "overallPlace": 5,
+        "bib": "5"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Mike Tunnah",
+        "gunTime": "1:00:25",
+        "pace": "3:56 ",
+        "overallPlace": 12,
+        "bib": "6"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Darren Lee",
+        "gunTime": "1:04:49",
+        "pace": "4:13 ",
+        "overallPlace": 15,
+        "bib": "4"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 16",
+    "subEventId": 283716,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Tyler Germani",
+        "gunTime": "56:02",
+        "pace": "3:40 ",
+        "overallPlace": 7,
+        "bib": "5"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Jordan Brensinger",
+        "gunTime": "56:51",
+        "pace": "3:43 ",
+        "overallPlace": 8,
+        "bib": "4"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Sarah Waugh",
+        "gunTime": "1:04:30",
+        "pace": "4:13 ",
+        "overallPlace": 20,
+        "bib": "6"
+      }
+    ]
+  },
+  {
+    "legName": "Leg 17",
+    "subEventId": 283717,
+    "results": [
+      {
+        "teamKey": "CB ROAD RUNNERS MASTERS",
+        "teamName": "CB Road Runners Masters",
+        "runnerName": "Ian Doyle",
+        "gunTime": "1:06:48",
+        "pace": "3:35 ",
+        "overallPlace": 7,
+        "bib": "5"
+      },
+      {
+        "teamKey": "TORONTO HARRIERS MASTERS TEAM",
+        "teamName": "Toronto Harriers Masters Team",
+        "runnerName": "Jonas Charyk",
+        "gunTime": "1:10:31",
+        "pace": "3:47 ",
+        "overallPlace": 9,
+        "bib": "4"
+      },
+      {
+        "teamKey": "HALIFAX OLD HAMMERS",
+        "teamName": "Halifax Old Hammers",
+        "runnerName": "Alex Farrell",
+        "gunTime": "1:15:05",
+        "pace": "4:01 ",
+        "overallPlace": 15,
+        "bib": "6"
+      }
+    ]
+  }
+]
