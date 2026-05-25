@@ -486,7 +486,7 @@ function generateElevationSvg(elevations) {
     
     return `
         <div style="margin-top: 0.5rem; margin-bottom: 0.3rem;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.6rem; font-weight: 600; color: var(--overlay-text-secondary); margin-bottom: 0.2rem;">
+            <div class="elevation-header" style="display: flex; justify-content: space-between; font-size: 0.6rem; font-weight: 600; color: var(--overlay-text-secondary); margin-bottom: 0.2rem;">
                 <span>Elevation Profile (Abs Scale)</span>
                 <span>Peak: ${Math.round(localMax)}m</span>
             </div>
@@ -531,7 +531,7 @@ function getLoopCardHtml(isNight, elevations = null) {
                     <div>
                         <span class="matchup-runner" style="font-size: 0.75rem; font-weight: 500;">${row.runnerName}</span>
                         ${isUser ? '<span class="user-badge" style="background: var(--overlay-primary); color: #000; font-size: 0.5rem; padding: 0.02rem 0.15rem; border-radius: 2px; font-weight: 700; margin-left: 0.2rem;">YOU</span>' : ''}
-                        <div style="font-size: 0.55rem; color: var(--overlay-text-secondary);">${row.teamName.split(' ')[0]}</div>
+                        <div class="matchup-team-short" style="font-size: 0.55rem; color: var(--overlay-text-secondary);">${row.teamName.split(' ')[0]}</div>
                     </div>
                 </div>
                 <div class="matchup-stats" style="text-align: right; font-family: var(--font-mono);">
@@ -555,20 +555,24 @@ function getLoopCardHtml(isNight, elevations = null) {
     }
     
     return `
-        <div class="detail-card-header" style="border-bottom: 1px solid var(--overlay-border); padding-bottom: 0.3rem; margin-bottom: 0.4rem; display: flex; flex-direction: column; gap: 0.1rem;">
-            <div class="overlay-title" style="font-size: 0.85rem; font-weight: 700; color: var(--overlay-primary); margin-bottom: 0.1rem;">${meta.name} Matchups</div>
-            <div style="font-size: 0.7rem; font-weight: 600; color: var(--overlay-text-secondary);">
-                ${meta.dist} • Difficulty: ${meta.rating}/5
+        <div class="detail-card-header matchup-card-header" style="border-bottom: 1px solid var(--overlay-border); padding-bottom: 0.3rem; margin-bottom: 0.4rem; display: flex; flex-direction: column; gap: 0.1rem;">
+            <div class="matchup-header-summary">
+                <div class="overlay-title" style="font-size: 0.85rem; font-weight: 700; color: var(--overlay-primary); margin-bottom: 0.1rem;">${meta.name} Matchups</div>
+                <div style="font-size: 0.7rem; font-weight: 600; color: var(--overlay-text-secondary);">
+                    ${meta.dist} • Difficulty: ${meta.rating}/5
+                </div>
             </div>
-            <div style="font-size: 0.62rem; font-weight: 700; color: var(--overlay-primary); text-transform: uppercase; letter-spacing: 0.03em;">
-                Minetti ${terrainLabel}
+            <div class="matchup-header-details">
+                <div style="font-size: 0.62rem; font-weight: 700; color: var(--overlay-primary); text-transform: uppercase; letter-spacing: 0.03em;">
+                    Minetti ${terrainLabel}
+                </div>
+                <div class="matchup-leg-description" style="font-size: 0.65rem; font-weight: 400; color: var(--overlay-text-muted); line-height: 1.3; margin-top: 0.2rem;">
+                    ${meta.desc}
+                </div>
+                ${elevationHtml}
             </div>
-            <div style="font-size: 0.65rem; font-weight: 400; color: var(--overlay-text-muted); line-height: 1.3; margin-top: 0.2rem;">
-                ${meta.desc}
-            </div>
-            ${elevationHtml}
         </div>
-        <div style="font-weight: 700; margin-bottom: 0.3rem; font-size: 0.6rem; text-transform: uppercase; color: var(--overlay-text-secondary); letter-spacing: 0.05em;">
+        <div class="leg-runner-heading" style="font-weight: 700; margin-bottom: 0.3rem; font-size: 0.6rem; text-transform: uppercase; color: var(--overlay-text-secondary); letter-spacing: 0.05em;">
             Leg Runner Matchup
         </div>
         <div class="runner-matchup">
