@@ -872,11 +872,6 @@ header.day .btn.active {
         line-height: 1.15 !important;
     }
 
-    .map-overlay-matchup .matchup-header-details > div:first-child {
-        font-size: 0.48rem !important;
-        line-height: 1 !important;
-    }
-
     .map-overlay-matchup .elevation-header {
         font-size: 0.46rem !important;
         gap: 0.35rem;

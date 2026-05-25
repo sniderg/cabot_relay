@@ -510,12 +510,6 @@ function getLoopCardHtml(isNight, elevations = null) {
     if (!legData || !legData.results) return '';
     
     const sorted = [...legData.results].sort((a, b) => timeToSeconds(a.gunTime) - timeToSeconds(b.gunTime));
-    const terrainFactor = getLegTerrainFactor(selectedLegIndex);
-    const terrainPercent = Math.round((terrainFactor - 1) * 100);
-    const terrainLabel = terrainPercent === 0
-        ? 'Flat cost'
-        : `${terrainPercent > 0 ? '+' : ''}${terrainPercent}% terrain cost`;
-    
     let rowsHtml = '';
     sorted.forEach(row => {
         const isUser = row.runnerName.includes("Graydon Snider");
@@ -563,9 +557,6 @@ function getLoopCardHtml(isNight, elevations = null) {
                 </div>
             </div>
             <div class="matchup-header-details">
-                <div style="font-size: 0.62rem; font-weight: 700; color: var(--overlay-primary); text-transform: uppercase; letter-spacing: 0.03em;">
-                    Minetti ${terrainLabel}
-                </div>
                 <div class="matchup-leg-description" style="font-size: 0.65rem; font-weight: 400; color: var(--overlay-text-muted); line-height: 1.3; margin-top: 0.2rem;">
                     ${meta.desc}
                 </div>
